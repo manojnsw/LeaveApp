@@ -1,0 +1,130 @@
+<div class="leave-form-container">
+  <h2>Leave Application</h2>
+
+  <form [formGroup]="leaveForm" (ngSubmit)="submit()">
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Applicant</mat-label>
+      <mat-select formControlName="applicantId" required>
+        <mat-option *ngFor="let user of users" [value]="user.userId">
+          {{ user.fullName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Manager</mat-label>
+      <mat-select formControlName="managerId" required>
+        <mat-option *ngFor="let user of users" [value]="user.userId">
+          {{ user.fullName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="date-row">
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="startPicker" formControlName="startDate" />
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="endPicker" formControlName="endDate" />
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="date-row">
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-label>Return Date</mat-label>
+        <input matInput [matDatepicker]="returnPicker" formControlName="returnDate" />
+        <mat-datepicker-toggle matSuffix [for]="returnPicker"></mat-datepicker-toggle>
+        <mat-datepicker #returnPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="half-width">
+        <mat-label>Number of Days</mat-label>
+        <input matInput type="number" formControlName="numberOfDays">
+      </mat-form-field>
+    </div>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>General Comments</mat-label>
+        <textarea matInput formControlName="generalComments" rows="3"></textarea>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="warn" type="reset">Cancel</button>
+      </div>
+  </form>
+</div>
+<!--<form [formGroup]="leaveForm" (ngSubmit)="submit()" class="leave-form">
+  <div class="row">
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>Applicant</mat-label>
+      <mat-select formControlName="applicantId">
+        <mat-option *ngFor="let user of users" [value]="user.userId">
+          {{user.fullName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>Manager</mat-label>
+      <mat-select formControlName="managerId">
+        <mat-option *ngFor="let user of users" [value]="user.userId">
+          {{user.fullName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="startPicker" formControlName="startDate">
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="endPicker" formControlName="endDate">
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>Return Date</mat-label>
+      <input matInput [matDatepicker]="returnPicker" formControlName="returnDate">
+      <mat-datepicker-toggle matSuffix [for]="returnPicker"></mat-datepicker-toggle>
+      <mat-datepicker #returnPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>Number of Days</mat-label>
+      <input matInput type="number" formControlName="numberOfDays">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Leave Type</mat-label>
+      <input matInput formControlName="leaveType">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>General Comments</mat-label>
+      <textarea matInput formControlName="generalComments" rows="4"></textarea>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+  <button mat-raised-button color="primary" type="reset">Cancel</button>
+</form>-->
